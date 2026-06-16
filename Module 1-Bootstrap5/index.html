@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Master Exercises</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body class="bg-light pb-5"> <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex flex-column flex-md-row px-3">
+        <a class="navbar-brand fw-bold text-uppercase" href="#">MyBrand</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav"> <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="container mt-4">
+        
+        <div class="text-center mb-5">
+            <h1 class="display-1">Welcome to Bootstrap</h1>
+            <p class="lead text-muted text-capitalize">this is a sample page combining multiple utilities.</p>
+        </div>
+
+        <div class="row">
+            <aside class="col-md-3 d-none d-md-block order-md-1">
+                <div class="bg-white p-3 shadow rounded">
+                    <h5>Navigation</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="#">Link 1</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Link 2</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="col-md-9 order-md-2"> <div class="p-4 mb-4 bg-primary bg-gradient text-white rounded shadow-lg"> <h2>Dashboard Overview</h2>
+                    <p>Contextual backgrounds and gradients look great here.</p>
+                </div>
+
+                <div class="row g-3 mb-5">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card bg-warning text-dark h-100">
+                            <div class="card-body">Responsive Card 1</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card bg-info text-dark h-100">
+                            <div class="card-body">Responsive Card 2</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card bg-success text-white h-100">
+                            <div class="card-body">Responsive Card 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row text-center mb-5">
+                    <div class="col-sm-3"><div class="p-2 border border-primary">Col 1</div></div> <div class="col-sm-3"><div class="p-2 border border-primary">Col 2</div></div>
+                    <div class="col-sm-3"><div class="p-2 border border-primary border-3">Col 3</div></div>
+                    <div class="col-sm-3"><div class="p-2 border border-primary rounded-pill">Col 4</div></div>
+                </div>
+
+                <div class="row justify-content-center align-items-center bg-secondary text-white p-5 mb-5" style="height: 150px;">
+                    <div class="col-auto">
+                        <h4>Perfectly Centered Content</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <h4>Forms</h4>
+                        <form class="mb-4 p-3 bg-white border rounded shadow-sm">
+                            <h5>Register</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="name@example.com">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="terms">
+                                <label class="form-check-label" for="terms">Agree to terms</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                        <form class="p-3 bg-white border rounded shadow-sm">
+                            <h5>Login</h5>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button class="btn btn-secondary w-100">Login</button>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <h4>Cards & Plugins</h4>
+                        <div class="card mb-4 position-relative shadow">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                New
+                            </span>
+                            <img src="https://via.placeholder.com/400x150" class="card-img-top" alt="Cover">
+                            <div class="card-body text-center">
+                                <img src="https://via.placeholder.com/80" class="rounded-circle border border-white border-3" style="margin-top: -40px;" alt="Avatar">
+                                <h5 class="card-title mt-2">Jane Doe</h5>
+                                <p class="card-text">Software Engineer. Explorer of CSS frameworks.</p>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-outline-primary">Follow</button>
+                                    <button type="button" class="btn btn-outline-secondary">Message</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion mb-4" id="sampleAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        Accordion Item 1
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#sampleAccordion">
+                                    <div class="accordion-body">Built with Bootstrap JavaScript plugins.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Launch Modal Popup
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hello World!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This is a modal popup triggered by a button using Bootstrap's JS behavior.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="position-fixed bottom-0 w-100 bg-dark text-white text-center p-3">
+        <span>© 2026 My Webpage | Follow us: </span>
+        <a href="#" class="btn btn-link text-white p-0 mx-2 fs-5"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="btn btn-link text-white p-0 mx-2 fs-5"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="btn btn-link text-white p-0 mx-2 fs-5"><i class="bi bi-github"></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

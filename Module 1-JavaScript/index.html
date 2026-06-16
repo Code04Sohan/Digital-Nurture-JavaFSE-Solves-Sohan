@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="style.css">
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Local Community Event Portal</h1>
+        </header>
+
+        <div class="controls-bar">
+            <input type="text" id="searchInput" class="control-field search-input" placeholder="Quick search events by name... (Press Key)">
+            <select id="categoryFilter" class="control-field">
+                <option value="all">All Event Categories</option>
+                <option value="music">Music & Concerts</option>
+                <option value="workshop">Educational Workshops</option>
+                <option value="social">Social Gatherings</option>
+            </select>
+            <button type="button" id="clearPrefsBtn" class="control-field" style="cursor: pointer; background: #e2e8f0; border: none; font-weight: 500;">Clear Category Preference</button>
+        </div>
+
+        <div id="spinner">⏳ Querying active community registers... Please wait.</div>
+
+        <div id="eventsContainer" class="events-grid"></div>
+
+        <section class="registration-section">
+            <h2>Portal Event Registration Hub</h2>
+            <form id="registrationForm" novalidate>
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" name="fullName" class="form-control" placeholder="Jane Doe" required>
+                    <div id="nameError" class="error-message">Name profile field entry is mandatory.</div>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" name="emailAddress" class="form-control" placeholder="jane.doe@example.com" required>
+                    <div id="emailError" class="error-message">Please supply an accurate email communication format address.</div>
+                </div>
+                <div class="form-group">
+                    <label for="regEvent">Select Targeted Event Target</label>
+                    <select id="regEvent" name="selectedEvent" class="form-control" required>
+                        <option value="" disabled selected>Choose from available upcoming listings...</option>
+                    </select>
+                    <div id="eventSelectError" class="error-message">You must choose an event entry pathway to commit registration requests.</div>
+                </div>
+                <button type="submit" id="registerBtn" class="submit-btn">Commit Online Server Registration</button>
+            </form>
+            <div id="formFeedback"></div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

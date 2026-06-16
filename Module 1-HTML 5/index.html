@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Exercise 3: Welcome Banner Styling Identification */
+        #welcomeBanner {
+            background-color: #1a73e8;
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Exercise 2: Navigation Formatting Bar */
+        nav {
+            background-color: #202124;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout Document Sections Styling */
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Exercise 4: Gallery Table Configuration formatting rules */
+        .gallery-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 3px solid #ddd;
+            border-radius: 6px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+        }
+        .gallery-img:hover {
+            border-color: #1a73e8;
+        }
+        
+        /* Exercise 5: Form Design Framework rules */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            outline: 2px solid #1a73e8;
+        }
+        .submit-btn, .action-btn {
+            background-color: #1a73e8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .submit-btn:hover, .action-btn:hover {
+            background-color: #1557b0;
+        }
+        .action-btn-danger {
+            background-color: #dc3545;
+        }
+        .action-btn-danger:hover {
+            background-color: #b02a37;
+        }
+        output {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #d1e7dd;
+            color: #0f5132;
+            border-left: 4px solid #0f5132;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        /* Video Aspect Box Rules wrapper */
+        video {
+            width: 100%;
+            max-width: 640px;
+            border-radius: 8px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#events">Events Gallery</a>
+            <a href="#registration">Register</a>
+            <a href="#media">Promo Video</a>
+            <a href="#mapping">Find Events</a>
+            <a href="help.html" target="_blank" style="float: right;">External Help Portal</a>
+        </nav>
+
+        <main id="home">
+            
+            <div id="welcomeBanner">
+                <h1>Welcome Back, Citizen!</h1>
+                <p>Explore city events and access local services instantly. 
+                   <span style="color: #ff3b30; font-weight: bold; background: white; padding: 2px 6px; border-radius: 4px;">
+                       Special Offer:
+                   </span> 
+                   Free parking validations are active today for all registered users!
+                </p>
+                <p>Current Notice: <span class="highlight">Council election registration is open</span> until next Friday morning.</p>
+            </div>
+
+            <section id="events">
+                <h2>Past Community Events Gallery</h2>
+                <table class="gallery-table">
+                    <caption>Visual photographic review documentation from our recent local neighborhood gatherings</caption>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?w=400" 
+                                     class="gallery-img" alt="Community Food Trucks Gathering" title="Double click to enlarge food festival view"
+                                     ondblclick="enlargeImage(this)">
+                            </td>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400" 
+                                     class="gallery-img" alt="Civic Planning Center Forum Meeting" title="Double click to enlarge forum room view"
+                                     ondblclick="enlargeImage(this)">
+                            </td>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?w=400" 
+                                     class="gallery-img" alt="Park Cleanup Volunteer Working Drive" title="Double click to enlarge environmental drive view"
+                                     ondblclick="enlargeImage(this)">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1531058020387-3be344559be6?w=400" 
+                                     class="gallery-img" alt="Outdoor Evening Music Festival Event" title="Double click to enlarge acoustic night stage view"
+                                     ondblclick="enlargeImage(this)">
+                            </td>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400" 
+                                     class="gallery-img" alt="Youth Technical Code Workshop Class" title="Double click to enlarge software lab view"
+                                     ondblclick="enlargeImage(this)">
+                            </td>
+                            <td>
+                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400" 
+                                     class="gallery-img" alt="Morning Sports Marathon Start Line" title="Double click to enlarge charity run view"
+                                     ondblclick="enlargeImage(this)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="registration">
+                <h2>Event Registration & Feedback Hub</h2>
+                <form id="portalForm" onsubmit="handleFormSubmit(event)">
+                    
+                    <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" class="form-control" placeholder="John Doe" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Email Address</label>
+                        <input type="email" id="userEmail" class="form-control" placeholder="johndoe@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userPhone">Phone Number (Validation Check)</label>
+                        <input type="tel" id="userPhone" class="form-control" placeholder="10-digit phone number" required onblur="validatePhoneNumber(this)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDate">Preferred Attendance Date</label>
+                        <input type="date" id="eventDate" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventType">Select Event Type</label>
+                        <select id="eventType" class="form-control" required onchange="handleEventTypeChange(this)">
+                            <option value="" disabled selected>Choose an event category...</option>
+                            <option value="festival">Spring Food Festival ($15 Entry)</option>
+                            <option value="forum">Town Hall Civic Forum (Free)</option>
+                            <option value="cleanup">Park Environmental Drive (Free)</option>
+                            <option value="concert">Outdoor Acoustic Concert ($25 Entry)</option>
+                        </select>
+                        <p id="feeDisplay" style="margin-top: 8px; font-weight: bold; color: #2c5282;"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedbackTextarea">Additional Profile Feedback / Character Counter Area</label>
+                        <textarea id="feedbackTextarea" class="form-control" rows="4" placeholder="Enter your detailed submission notes or review suggestions here..." onkeyup="countCharacters(this)"></textarea>
+                        <p id="charCounter" style="margin-top: 5px; font-size: 0.85rem; color: #555;">Characters typed: 0</p>
+                    </div>
+
+                    <button type="submit" class="submit-btn" onclick="logSubmitClick()">Submit Registration Proposal</button>
+                    <button type="button" class="action-btn action-btn-danger" onclick="clearUserPreferences()" style="margin-left: 10px;">Clear Stored Preferences</button>
+                    
+                    <output id="submissionOutput" style="display: none;"></output>
+                </form>
+            </section>
+
+            <section id="media">
+                <h2>Featured Event Promo Video</h2>
+                <video id="promoVideo" controls oncanplay="notifyVideoReady()">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your web browser engine does not support native HTML5 structural video playbacks.
+                </video>
+                <p id="videoStatus" style="margin-top: 10px; font-style: italic; color: #666;"></p>
+            </section>
+
+            <section id="mapping">
+                <h2>Event Proximity Discovery Engine</h2>
+                <p>Click below to authorize coordinate mapping tracking mechanics to look up coordinates closest to your physical site node location.</p>
+                <button type="button" class="action-btn" onclick="fetchDeviceCoordinates()">Find Nearby Events</button>
+                <div id="geoOutput" style="margin-top: 15px; font-weight: 500;"></div>
+            </section>
+
+        </main>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #ddd; color: #777;">
+            <p>&copy; 2026 City Council Portal Development Hub. Built with semantic browser layout principles.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Track whether changes were made to form fields to prevent accidental exit hooks
+        let formIsDirty = false;
+        document.querySelectorAll('.form-control').forEach(element => {
+            element.addEventListener('input', () => { formIsDirty = true; });
+        });
+
+        // Exercise 7: Warn users before leaving if form state contains entries
+        window.onbeforeunload = function(event) {
+            if (formIsDirty) {
+                const message = "You have unsaved form registration fields pending. Are you sure you want to abandon entries?";
+                event.returnValue = message;
+                return message;
+            }
+        };
+
+        // Exercise 8: Read storage files immediately upon window context initialization structures
+        window.onload = function() {
+            const savedPreference = localStorage.getItem("preferredEventType");
+            if (savedPreference) {
+                const eventSelect = document.getElementById("eventType");
+                eventSelect.value = savedPreference;
+                // Trigger updates to display standard fee values for structural choices
+                handleEventTypeChange(eventSelect);
+                console.log("Retrieved and pre-selected stored choice category: " + savedPreference);
+            }
+        };
+
+        // Exercise 6: Validate phone format structures natively during text changes 
+        function validatePhoneNumber(inputField) {
+            const phoneNumber = inputField.value.trim();
+            const phonePattern = /^\d{10}$/; // Matches exactly 10 consecutive digits
+            if (phoneNumber && !phonePattern.test(phoneNumber)) {
+                alert("Validation error: Please input an accurately sized 10-digit phone tracking layout structure number code.");
+                inputField.style.borderColor = "#dc3545";
+            } else if (phoneNumber) {
+                inputField.style.borderColor = "#198754";
+            }
+        }
+
+        // Exercise 6 & 8: Fee lookup rendering structures mapping selectors back down to actions
+        function handleEventTypeChange(selectElement) {
+            const displayBlock = document.getElementById("feeDisplay");
+            const choice = selectElement.value;
+            let descriptivePriceText = "";
+
+            switch(choice) {
+                case "festival": descriptivePriceText = "Registration Event Fee Total: $15 USD"; break;
+                case "forum": descriptivePriceText = "Registration Event Fee Total: FREE admission"; break;
+                case "cleanup": descriptivePriceText = "Registration Event Fee Total: FREE admission"; break;
+                case "concert": descriptivePriceText = "Registration Event Fee Total: $25 USD"; break;
+                default: descriptivePriceText = "";
+            }
+            displayBlock.textContent = descriptivePriceText;
+
+            // Commit settings choices directly to the local preference instance cache
+            if (choice) {
+                localStorage.setItem("preferredEventType", choice);
+                console.log("Committed event choice preference string key value inside localStorage: " + choice);
+            }
+        }
+
+        // Exercise 6: Track submit click context hooks directly for reporting mechanisms
+        function logSubmitClick() {
+            console.log("Submission evaluation validation thread button node fired.");
+        }
+
+        // Exercise 5: Process overall system confirmations out to standard user view spaces
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Stop structural page refreshes
+            formIsDirty = false; // Reset modification flag on full structural save events
+
+            const name = document.getElementById("userName").value;
+            const chosenType = document.getElementById("eventType").value;
+            const outputBlock = document.getElementById("submissionOutput");
+
+            outputBlock.style.display = "block";
+            outputBlock.innerHTML = `<strong>Registration Status: Success!</strong> Thank you ${name}. Your registration proposal for the <u>${chosenType}</u> community segment is officially confirmed inside city council records systems.`;
+            alert("Your event application has been successfully captured and logged inside portal registers.");
+        }
+
+        // Exercise 6: Image expansion view hooks via interaction tracking mechanisms
+        function enlargeImage(imgNode) {
+            if (imgNode.style.transform === "scale(1.2)") {
+                imgNode.style.transform = "scale(1)";
+                imgNode.style.zIndex = "1";
+            } else {
+                imgNode.style.transform = "scale(1.2)";
+                imgNode.style.zIndex = "10";
+                imgNode.style.position = "relative";
+            }
+        }
+
+        // Exercise 6: Character typing text validation trackers 
+        function countCharacters(textareaNode) {
+            const currentStringLength = textareaNode.value.length;
+            document.getElementById("charCounter").textContent = "Characters typed: " + currentStringLength;
+        }
+
+        // Exercise 7: Video operational buffering context ready signals listeners
+        function notifyVideoReady() {
+            const logMsg = "Media player ready pipeline complete: Promo video file is loaded and ready to play without latency barriers.";
+            document.getElementById("videoStatus").textContent = "System Status: Video asset stream ready to play smoothly.";
+            console.log(logMsg);
+        }
+
+        // Exercise 8: Clear persistent user selection values across local and ephemeral targets
+        function clearUserPreferences() {
+            localStorage.removeItem("preferredEventType");
+            sessionStorage.clear(); // Clear all ephemeral session instances
+            
+            // Clean up state changes across standard visual DOM nodes UI elements
+            document.getElementById("eventType").value = "";
+            document.getElementById("feeDisplay").textContent = "";
+            alert("Local storage and active session instances cache preferences successfully updated.");
+            console.log("Storage preference buffers purged completely.");
+        }
+
+        // Exercise 9: Advanced Geolocation Interface API mapping controls implementations
+        function fetchDeviceCoordinates() {
+            const geoOutput = document.getElementById("geoOutput");
+            geoOutput.style.color = "#333";
+            geoOutput.textContent = "Negotiating handshake with device hardware telemetry sensors. Please wait...";
+
+            if (!navigator.geolocation) {
+                geoOutput.textContent = "Hardware error: Native geolocation tracking pipelines are unsupported by your application version engine browser structures.";
+                geoOutput.style.color = "#dc3545";
+                return;
+            }
+
+            // High accuracy validation options configuration profiles settings definitions
+            const configurationOptions = {
+                enableHighAccuracy: true,
+                timeout: 8000, // Fixed 8-second execution timeout limits
+                maximumAge: 0
+            };
+
+            navigator.geolocation.getCurrentPosition(
+                (positionData) => {
+                    const lat = positionData.coords.latitude;
+                    const lon = positionData.coords.longitude;
+                    geoOutput.style.color = "#198754";
+                    geoOutput.innerHTML = `📍 Location verification confirmed!<br><strong>Latitude coordinate node:</strong> ${lat.toFixed(6)}°<br><strong>Longitude coordinate node:</strong> ${lon.toFixed(6)}°<br><span style='font-size:0.9rem; color:#666;'>Processing relative nearest venue coordinates matrix maps calculations inside portal system algorithms...</span>`;
+                    console.log(`Device reported telemetry: Lat=${lat}, Lon=${lon}`);
+                },
+                (hardwareError) => {
+                    geoOutput.style.color = "#dc3545";
+                    switch(hardwareError.code) {
+                        case hardwareError.PERMISSION_DENIED:
+                            geoOutput.textContent = "Error: Access permission rejected by client software system settings configuration rules.";
+                            break;
+                        case hardwareError.POSITION_UNAVAILABLE:
+                            geoOutput.textContent = "Error: Network connection structural tracking telemetry failed to resolve precise satellite or cell signal values.";
+                            break;
+                        case hardwareError.TIMEOUT:
+                            geoOutput.textContent = "Error: Telemetry handshake calculations timed out before device responded accurately within parameters metrics constraints.";
+                            break;
+                        default:
+                            geoOutput.textContent = "Error: An unknown system exception occurred during geographical position initialization protocols.";
+                    }
+                    console.warn(`Geolocation connection error encounter sequence code: ${hardwareError.code} - ${hardwareError.message}`);
+                }, 
+                configurationOptions
+            );
+        }
+    </script>
+</body>
+</html>

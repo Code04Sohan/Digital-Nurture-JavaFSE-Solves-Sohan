@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6f9; 
+        }
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header id="mainHeader">
+        <h1 style="color: #ff3b30;">Townsville Community Hub</h1>
+        <p>Your central destination for local gatherings, meetings, and updates.</p>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#events">Upcoming Events</a></li>
+                <li><a href="#bulletin">Community Bulletin</a></li>
+                <li><a href="#admin">Admin Dashboard</a></li>
+                <li><a href="#register">Submit Event</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <section id="events">
+            <h2>Featured Gatherings</h2>
+            
+            <div class="events-grid">
+                <article class="eventCard">
+                    <h3>Annual Spring Food Festival</h3>
+                    <p class="description">Join us for local vendors, live acoustic music, and family-friendly culinary workshops at the main square.</p>
+                    <a href="#" class="cta-link">View Event Details</a>
+                </article>
+
+                <article class="eventCard">
+                    <h3>Charity Fun Run & 5K</h3>
+                    <p class="description">Help raise funds for the local children's library renewal initiative. Registration opens early morning.</p>
+                    <a href="#" class="cta-link">Register to Run</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="bulletin" class="news-bulletin">
+            <h2>Weekly Community Bulletin</h2>
+            <article class="news-article">
+                <h3>Council Approves New Green Space Initiatives</h3>
+                <p>The city council voted unanimously this past Tuesday afternoon to convert the historical, abandoned rail yard on Elm Street into an expansive public park and community garden project. Construction is slated to officially begin late next month, with pathways, native flora plantings, and recreational zones expected to open by early winter. Residents are encouraged to submit structural ideas for the playground section online.</p>
+                <p>In addition to the park space, structural grants have been allocated toward planting urban canopy trees along high-traffic pedestrian corridors, looking to combat summer heat index spikes effectively.</p>
+            </article>
+        </section>
+
+        <section id="admin">
+            <h2>Events Admin Log</h2>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event ID</th>
+                            <th>Event Title</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1092</td>
+                            <td>Spring Food Festival</td>
+                            <td>Main Square Park</td>
+                            <td>Approved</td>
+                        </tr>
+                        <tr>
+                            <td>#1093</td>
+                            <td>Charity Fun Run</td>
+                            <td>Community Stadium</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>#1094</td>
+                            <td>Town Hall Debate</td>
+                            <td>Civic Center Room B</td>
+                            <td>Approved</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="register">
+            <h2>Submit a New Event Proposal</h2>
+            <form class="portal-form">
+                <div class="form-group">
+                    <label for="eventTitle">Proposed Event Title</label>
+                    <input type="text" id="eventTitle" placeholder="e.g., Neighborhood Clean-up Day">
+                </div>
+                <button type="submit" class="submit-btn">Submit Proposal</button>
+            </form>
+        </section>
+
+        <section class="demo-box-section">
+            <h3>Layout Space Utility Test Reference</h3>
+            <div class="box-demo display-none-test">This text uses display: none</div>
+            <div class="box-demo visibility-hidden-test">This text uses visibility: hidden</div>
+            <p>Notice how the space allocation behavior alters neighboring document nodes visually.</p>
+        </section>
+
+    </div>
+
+</body>
+</html>

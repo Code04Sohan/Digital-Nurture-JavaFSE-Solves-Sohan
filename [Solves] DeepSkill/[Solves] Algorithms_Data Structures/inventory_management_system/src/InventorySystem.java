@@ -27,7 +27,7 @@ public class InventorySystem {
             updateProduct.setPrice(newPrice);
            }
            if (newName != null) {
-            updateProduct.setQuantity(newQuantity);
+            updateProduct.setName(newName);
            }
         }else{
             System.out.println("Produt is not added or exsist in Invintory");

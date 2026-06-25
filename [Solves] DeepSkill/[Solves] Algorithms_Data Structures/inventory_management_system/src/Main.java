@@ -16,5 +16,7 @@ public class Main {
         //veryNormalStore.deleteProduct(4);
 
         veryNormalStore.displayProduct();
+        veryNormalStore.updateProduct(1, 20, null, null);
+        veryNormalStore.displayProduct();
     }
 }

@@ -3,7 +3,7 @@ import Trainer from "./Trainer";
 const trainerMock = [
     new Trainer(
         't-syed8',
-        'Syed Khaleelullah',
+        'Sohan Adhikari',
         'khaleelullah@cognizant.com',
         '97676516962',
         '.NET',
@@ -11,19 +11,11 @@ const trainerMock = [
     ),
     new Trainer(
         't-jojo',
-        'Jojo Jose',
+        'Ankita Maji',
         'jojo@cognizant.com',
         '9897199231',
         'Java',
         ['Java', 'JSP', 'Angular', 'Spring']
-    ),
-    new Trainer(
-        't-elisa',
-        'Elisa Jones',
-        'elisa@cognizant.com',
-        '9871212235',
-        'Python',
-        ['Python', 'Django', 'Angular']
     )
 ];
 export default trainerMock;

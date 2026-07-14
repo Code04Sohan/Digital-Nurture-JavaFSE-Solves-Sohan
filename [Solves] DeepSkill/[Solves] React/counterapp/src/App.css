@@ -1,0 +1,29 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 250px;
+  font-family: sans-serif;
+}
+
+.action-button {
+  background-color: #b3ffcc;
+  border: 1px solid black;
+  padding: 2px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #99ffb8; /* Optional: adds a slight hover effect */
+}
+
+.highlight {
+  text-align: center; 
+  color: #00a10d; 
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+
+}

@@ -1,28 +1,27 @@
-import React from 'react';
-
-export class Cart extends React.Component {
-  render() {
-    return (
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {this.props.item.map((item, index) => {
-            return (
-              <tr key={index}>
-                <td>{item.itemname}</td>
-                <td>{item.price}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    );
-  }
+import React from "react";
+import './App.css'
+class Cart extends React.Component {
+    render() {
+        return (
+            <table className="cart-table">
+                <thead>
+                    <tr>
+                        <th className="cart-table th">Product</th>
+                        <th className="cart-table th">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.props.product.map((item) => {
+                        return (
+                            <tr>
+                                <td>{item.name}</td>
+                                <td>{item.price}</td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+        );
+    }
 }
-
 export default Cart;

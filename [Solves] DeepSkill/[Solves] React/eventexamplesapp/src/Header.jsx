@@ -36,6 +36,7 @@ function Header(){
             <div>
                 <span>
                     <button onClick={() => showMsg("Welcome")}>Say Welcome</button>
+                    <button onClick={() => showMsg("I was clicked")}>Click on me</button>
                 </span>
             </div>
         </div>

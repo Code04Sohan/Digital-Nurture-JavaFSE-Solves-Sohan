@@ -29,5 +29,23 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        
+
+        <!-- Added Dependency according to exercise 3 -->
+        <!-- Spring AOP Dependency -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>6.1.10</version>
+        </dependency>
+
+        <!-- AspectJ Weaver (Required to intercept method execution times) -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+
+        <!-- ========================================== -->
     </dependencies>
 </project>

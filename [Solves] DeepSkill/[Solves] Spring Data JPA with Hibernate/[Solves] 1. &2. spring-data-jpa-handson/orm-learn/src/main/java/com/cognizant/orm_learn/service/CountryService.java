@@ -58,4 +58,20 @@ public class CountryService {
     public List<Country> searchCountryByName(String partialName) {
         return countryRepository.findByNameContainingOrderByNameAsc(partialName);
     }
+
+    // Hands on 2 [[Solves] 2. spring-data-jpa-handson]] codes.
+    @Transactional
+    public List<Country> searchCountriesByPartialName(String partialName) {
+        return countryRepository.findByNameContaining(partialName);
+    }
+
+    @Transactional
+    public List<Country> searchCountriesByPartialNameAsc(String partialName) {
+        return countryRepository.findByNameContainingOrderByNameAsc(partialName);
+    }
+
+    @Transactional
+    public List<Country> searchCountriesStartingWith(String alphabet) {
+        return countryRepository.findByNameStartingWith(alphabet);
+    }
 }

@@ -1,0 +1,1 @@
+[Solves] 2. spring-data-jpa-handson is done in [Solves] 1.&2. spring-data-jpa-handson file

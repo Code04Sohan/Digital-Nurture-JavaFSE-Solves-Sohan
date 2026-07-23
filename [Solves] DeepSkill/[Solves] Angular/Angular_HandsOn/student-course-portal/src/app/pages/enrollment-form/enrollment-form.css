@@ -1,0 +1,14 @@
+.form-container { max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+.form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+.checkbox-group { flex-direction: row; align-items: center; gap: 10px; }
+input, select { padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; outline: none; }
+
+/* Angular Form State CSS Classes */
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched { border-color: red; }
+input.ng-valid.ng-touched, select.ng-valid.ng-touched { border-color: green; }
+
+.error-text { color: red; font-size: 0.85em; margin-top: 5px; display: flex; flex-direction: column; }
+.success-message { color: green; font-weight: bold; padding: 15px; background-color: #e6ffe6; border: 1px solid green; border-radius: 4px; margin-bottom: 15px; }
+.form-actions { display: flex; gap: 10px; margin-top: 20px; }
+button { padding: 8px 16px; cursor: pointer; }
+button[disabled] { cursor: not-allowed; opacity: 0.6; }

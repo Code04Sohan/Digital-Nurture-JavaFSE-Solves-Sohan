@@ -1,0 +1,26 @@
+<div class="list-container">
+  <h2>Available Courses</h2>
+  
+  <!-- Loading State -->
+  <p *ngIf="isLoading">Loading courses...</p>
+
+  <!-- Loaded State with else block -->
+  <div *ngIf="!isLoading">
+    <div class="card-grid" *ngIf="courses.length > 0; else noCourses">
+      
+      <!-- *ngFor loop with trackBy and Custom Directive application -->
+      <!-- Removed the (enrollRequested) binding here -->
+      <app-course-card 
+        *ngFor="let course of courses; trackBy: trackByCourseId"
+        [course]="course"
+        [appHighlight]="'lightblue'">
+      </app-course-card>
+      
+    </div>
+  </div>
+
+  <!-- ng-template used by the else block -->
+  <ng-template #noCourses>
+    <p>No courses available.</p>
+  </ng-template>
+</div>

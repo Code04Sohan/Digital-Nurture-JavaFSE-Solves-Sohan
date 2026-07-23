@@ -1,26 +1,16 @@
 <div class="list-container">
   <h2>Available Courses</h2>
   
-  <!-- Loading State -->
-  <p *ngIf="isLoading">Loading courses...</p>
-
-  <!-- Loaded State with else block -->
-  <div *ngIf="!isLoading">
-    <div class="card-grid" *ngIf="courses.length > 0; else noCourses">
-      
-      <!-- *ngFor loop with trackBy and Custom Directive application -->
-      <!-- Removed the (enrollRequested) binding here -->
-      <app-course-card 
-        *ngFor="let course of courses; trackBy: trackByCourseId"
-        [course]="course"
-        [appHighlight]="'lightblue'">
-      </app-course-card>
-      
-    </div>
+  <div *ngIf="error$ | async as errorMsg" style="color: red;">
+    {{ errorMsg }}
   </div>
 
-  <!-- ng-template used by the else block -->
-  <ng-template #noCourses>
-    <p>No courses available.</p>
-  </ng-template>
+  <p *ngIf="loading$ | async">Loading courses... Please wait.</p>
+
+  <div class="card-grid" *ngIf="(loading$ | async) === false">
+    <!-- Render using the async pipe directly from the Store -->
+    <div *ngFor="let course of (courses$ | async)">
+      <app-course-card [course]="course"></app-course-card>
+    </div>
+  </div>
 </div>

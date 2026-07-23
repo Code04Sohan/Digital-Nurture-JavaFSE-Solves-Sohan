@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, forkJoin, of } from 'rxjs'; // <-- ADDED RxJS imports
 import { CourseService } from './course';
 import { Course } from '../models/course.model';
 
@@ -8,7 +9,6 @@ import { Course } from '../models/course.model';
 export class EnrollmentService {
   private enrolledCourseIds: number[] = [];
 
-  // Injecting CourseService into EnrollmentService
   constructor(private courseService: CourseService) {}
 
   enroll(courseId: number): void {
@@ -25,9 +25,16 @@ export class EnrollmentService {
     return this.enrolledCourseIds.includes(courseId);
   }
 
-  getEnrolledCourses(): Course[] {
-    return this.enrolledCourseIds
-      .map(id => this.courseService.getCourseById(id))
-      .filter((course): course is Course => course !== undefined);
+  // CHANGED: Now returns Observable<Course[]> and uses forkJoin
+  getEnrolledCourses(): Observable<Course[]> {
+    if (this.enrolledCourseIds.length === 0) {
+      return of([]); // Return an empty observable array if not enrolled in anything
+    }
+    
+    // Create an array of HTTP requests for each enrolled ID
+    const courseRequests = this.enrolledCourseIds.map(id => this.courseService.getCourseById(id));
+    
+    // forkJoin fires them all off and waits for all of them to finish
+    return forkJoin(courseRequests);
   }
 }

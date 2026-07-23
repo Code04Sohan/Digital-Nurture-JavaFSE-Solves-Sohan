@@ -1,32 +1,41 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreditLabelPipe } from '../../pipes/credit-label-pipe';
-import { EnrollmentService } from '../../services/enrollment';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 import { Course } from '../../models/course.model';
+import { enrollInCourse, unenrollFromCourse } from '../../store/enrollment/enrollment.actions';
+import { selectEnrolledIds } from '../../store/enrollment/enrollment.selectors';
+import { CreditLabelPipe } from '../../pipes/credit-label-pipe'; 
 
 @Component({
   selector: 'app-course-card',
   standalone: true,
   imports: [CommonModule, CreditLabelPipe],
-  templateUrl: './course-card.html',
-  styleUrl: './course-card.css'
+  templateUrl: './course-card.html'
 })
-export class CourseCardComponent {
+// ADDED: implements OnChanges
+export class CourseCardComponent implements OnInit, OnChanges {
   @Input() course!: Course;
   isExpanded: boolean = false;
+  
+  enrolledIds$!: Observable<number[]>;
+  isEnrolled$!: Observable<boolean>;
 
-  constructor(private enrollmentService: EnrollmentService) {}
+  constructor(private store: Store) {}
 
-  get cardClasses() {
-    return {
-      'card--enrolled': this.isEnrolled,
-      'card--full': this.course.credits >= 4,
-      'expanded': this.isExpanded
-    };
+  ngOnInit(): void {
+    this.enrolledIds$ = this.store.select(selectEnrolledIds);
+    this.isEnrolled$ = this.enrolledIds$.pipe(
+      map(ids => ids.includes(this.course.id))
+    );
   }
 
-  get isEnrolled(): boolean {
-    return this.enrollmentService.isEnrolled(this.course.id);
+  // ADDED: The ngOnChanges lifecycle hook
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['course']) {
+      console.log('Course input changed!', changes);
+    }
   }
 
   toggleDetails(): void {
@@ -34,10 +43,12 @@ export class CourseCardComponent {
   }
 
   toggleEnrollment(): void {
-    if (this.isEnrolled) {
-      this.enrollmentService.unenroll(this.course.id);
-    } else {
-      this.enrollmentService.enroll(this.course.id);
-    }
+    this.isEnrolled$.pipe(take(1)).subscribe(currentlyEnrolled => {
+      if (currentlyEnrolled) {
+        this.store.dispatch(unenrollFromCourse({ courseId: this.course.id }));
+      } else {
+        this.store.dispatch(enrollInCourse({ courseId: this.course.id }));
+      }
+    });
   }
 }

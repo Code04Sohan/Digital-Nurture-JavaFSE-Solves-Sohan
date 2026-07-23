@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from './components/header/header';
-import { HomeComponent } from './pages/home/home';
+import { HeaderComponent } from './components/header/header';
+// HomeComponent import removed
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Header, HomeComponent],
+  // HomeComponent removed from the imports array
+  imports: [RouterOutlet, HeaderComponent], 
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrl: './app.css'
 })
+// Renamed from App to AppComponent
 export class AppComponent {
   title = 'student-course-portal';
 }

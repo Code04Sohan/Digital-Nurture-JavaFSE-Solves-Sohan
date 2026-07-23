@@ -1,14 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CourseService } from '../../services/course'; // <-- ADDED: Import the service
+import { CommonModule } from '@angular/common'; // <-- ADDED
+import { CourseService } from '../../services/course';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule], // <-- ADDED
   templateUrl: './home.html', 
   styleUrl: './home.css'      
 })
+// ... rest of class remains exactly the same
 export class HomeComponent implements OnInit, OnDestroy {
   // Task 1 Properties
   portalName: string = 'Student Course Portal';

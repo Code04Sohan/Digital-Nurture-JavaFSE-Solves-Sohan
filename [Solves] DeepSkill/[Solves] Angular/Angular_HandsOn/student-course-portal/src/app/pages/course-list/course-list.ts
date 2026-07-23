@@ -1,33 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CourseCardComponent } from '../../components/course-card/course-card';
-import { HighlightDirective } from '../../directives/highlight';
-import { CourseService } from '../../services/course';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Course } from '../../models/course.model';
+import { loadCourses } from '../../store/course/course.actions';
+import { selectAllCourses, selectCoursesLoading, selectCoursesError } from '../../store/course/course.selectors';
+import { CourseCardComponent } from '../../components/course-card/course-card';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule, CourseCardComponent, HighlightDirective],
-  templateUrl: './course-list.html',
-  styleUrl: './course-list.css'
+  imports: [CommonModule, CourseCardComponent],
+  templateUrl: './course-list.html'
 })
 export class CourseListComponent implements OnInit {
-  isLoading: boolean = true;
-  courses: Course[] = [];
+  courses$: Observable<Course[]>;
+  loading$: Observable<boolean>;
+  error$: Observable<string | null>;
 
-  // Inject the service via the constructor
-  constructor(private courseService: CourseService) {}
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-      // Fetch live data from the service
-      this.courses = this.courseService.getCourses(); 
-    }, 1500);
+  constructor(private store: Store) {
+    this.courses$ = this.store.select(selectAllCourses);
+    this.loading$ = this.store.select(selectCoursesLoading);
+    this.error$ = this.store.select(selectCoursesError);
   }
 
-  trackByCourseId(index: number, course: Course): number {
-    return course.id;
+  ngOnInit(): void {
+    // Dispatch the action to load courses. The Effect will catch this and make the HTTP call.
+    this.store.dispatch(loadCourses());
   }
 }

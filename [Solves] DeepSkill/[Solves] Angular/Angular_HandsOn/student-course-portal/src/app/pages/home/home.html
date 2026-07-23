@@ -1,21 +1,27 @@
 <div class="home-container">
   <!-- Interpolation Binding -->
   <h2>Welcome to the {{ portalName }}</h2>
-  
-  <p>Your one-stop destination for managing courses, tracking progress, and accelerating your learning journey.</p>
-  
+
+  <p>
+    Your one-stop destination for managing courses, tracking progress, and accelerating your
+    learning journey.
+  </p>
+
   <div class="stats-row">
-    <div class="stat-card">Courses Available: <strong>{{ courseService.getCourses().length }}</strong></div>
+    <!-- Change this line: -->
+    <div class="stat-card">
+      Courses Available: <strong>{{ (courseService.getCourses() | async)?.length || 0 }}</strong>
+    </div>
     <div class="stat-card">Enrolled: <strong>3</strong></div>
     <div class="stat-card">GPA: <strong>3.8</strong></div>
   </div>
 
-  <hr>
+  <hr />
 
   <!-- Two-Way Binding -->
   <div>
     <label for="search">Search Courses: </label>
-    <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Type here...">
+    <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="Type here..." />
     <p>Searching for: {{ searchTerm }}</p>
   </div>
 

@@ -1,0 +1,110 @@
+==============================================================================
+                    GIT HANDS-ON LAB 4 EXECUTION LOG 
+==============================================================================
+
+Lab Objective:
+- Implement conflict resolution when merging branches with conflicting changes in hello.xml.
+- Use 3-way merge/P4Merge tool to resolve conflicts and update .gitignore for backup files.
+
+Environment Details:
+- OS: Windows 11
+- Shell: Git Bash
+- Git Version: git version 2.54.0.windows.1
+
+User Credentials & Repository Details:
+- Git Username: Code04Sohan
+- Git Email: sohanadhikari04@gmail.com
+- Remote Repository URL: https://github.com/Code04Sohan/Digital-Nurture-JavaFSE-Solves-Sohan.git
+
+------------------------------------------------------------------------------
+STEP 1: PREPARE GITWORK BRANCH AND COMMIT FILE
+------------------------------------------------------------------------------
+Commands Executed:
+$ git status
+$ git checkout -b GitWork
+$ echo "Hi Hellow World by Sohan" >> hello.xml
+$ git status
+$ git add hello.xml
+$ git commit -m "Add hello.xml on GitWork branch"
+
+Notes:
+- Verified working tree clean state on main branch.
+- Created and switched to "GitWork" branch using `git checkout -b GitWork`.
+- Created "hello.xml" with content: "Hi Hellow World by Sohan".
+- Staged and committed "hello.xml" on "GitWork" branch.
+
+------------------------------------------------------------------------------
+STEP 2: CREATE CONFLICT ON MAIN BRANCH
+------------------------------------------------------------------------------
+Commands Executed:
+$ git checkout main
+$ echo "Hi here it is Main Branch" >> hello.xml
+$ git add hello.xml
+$ git commit -m "Add conflicting hello.xml on main branch"
+$ git log --oneline --graph --decorate --all
+
+Notes:
+- Switched back to the "main" branch.
+- Created "hello.xml" on main with conflicting content: "Hi here it is Main Branch".
+- Staged and committed "hello.xml" on "main".
+- Inspected divergent commit paths using `git log --oneline --graph --decorate --all`.
+
+------------------------------------------------------------------------------
+STEP 3: COMPARE AND TRIGGER MERGE CONFLICT
+------------------------------------------------------------------------------
+Commands Executed:
+$ git diff main GitWork
+$ git difftool -t p4merge main GitWork
+$ git merge GitWork
+
+Notes:
+- Checked CLI differences using `git diff`.
+- Opened visual diff in P4Merge tool via `git difftool`.
+- Executed `git merge GitWork`, which triggered an explicit automatic merge conflict in `hello.xml`.
+
+------------------------------------------------------------------------------
+STEP 4: RESOLVE MERGE CONFLICT WITH 3-WAY MERGE TOOL
+------------------------------------------------------------------------------
+Commands Executed:
+$ git mergetool -t p4merge
+$ git status
+$ git commit -m "the final is merged."
+
+Notes:
+- Launched 3-way visual resolution tool using P4Merge via `git mergetool`.
+- Resolved conflict by selecting valid content and saving `hello.xml`.
+- Executed `git status` which showed `hello.xml` staged for commit and an untracked backup file `hello.xml.orig`.
+- Completed conflict resolution commit with message: "the final is merged.".
+
+------------------------------------------------------------------------------
+STEP 5: IGNORE BACKUP FILES AND CLEANUP
+------------------------------------------------------------------------------
+Commands Executed:
+$ echo "*.orig" >> .gitignore
+$ git status
+$ git add .gitignore
+$ git commit -m "Ignore P4Merge backup orig files"
+$ git branch -a
+$ git branch -d GitWork
+$ git log --oneline --graph --decorate
+
+Notes:
+- Added `*.orig` pattern to `.gitignore` to prevent P4Merge temporary backup files from tracking.
+- Staged and committed `.gitignore`.
+- Listed all active branches using `git branch -a`.
+- Safely deleted merged branch "GitWork" using `git branch -d GitWork`.
+- Verified final integrated history using `git log --oneline --graph --decorate`.
+
+------------------------------------------------------------------------------
+STEP 6: REMOTE SYNCHRONIZATION
+------------------------------------------------------------------------------
+Commands Executed:
+$ git pull origin main
+$ git push origin main
+
+Notes:
+- Pulled latest changes to ensure synchronization and pushed resolved main branch to remote GitHub repository.
+
+==============================================================================
+STATUS: ALL COMMANDS EXECUTED SUCCESSFULLY WITHOUT ERRORS.
+==============================================================================

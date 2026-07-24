@@ -1,0 +1,74 @@
+==============================================================================
+                    GIT HANDS-ON LAB 2 EXECUTION LOG 
+==============================================================================
+
+Lab Objective:
+- Implement .gitignore to ignore unwanted files (.log) and folders (Logs).
+
+Environment Details:
+- OS: Windows 11
+- Shell: Git Bash
+- Git Version: git version 2.54.0.windows.1
+
+User Credentials & Repository Details:
+- Git Username: Code04Sohan
+- Git Email: sohanadhikari04@gmail.com
+- Remote Repository URL: https://github.com/Code04Sohan/Digital-Nurture-JavaFSE-Solves-Sohan.git
+
+------------------------------------------------------------------------------
+STEP 1: CREATE UNWANTED FILES AND FOLDERS
+------------------------------------------------------------------------------
+Commands Executed:
+$ echo "Application run trace" >> app.log
+$ mkdir Logs
+$ echo "Detailed event log" >> Logs/system.log
+$ git status
+
+Notes:
+- Created an unwanted log file named "app.log" in the root directory.
+- Created an unwanted folder named "Logs" containing "system.log".
+- Verified with `git status` that Git detected "app.log" and "Logs/" as untracked items.
+
+------------------------------------------------------------------------------
+STEP 2: CREATE AND CONFIGURE .GITIGNORE
+------------------------------------------------------------------------------
+Commands Executed:
+$ echo "*.log" >> .gitignore
+$ echo "Logs/" >> .gitignore
+$ cat .gitignore
+
+Notes:
+- Created the `.gitignore` file.
+- Added `*.log` rule to ignore all `.log` files.
+- Added `Logs/` rule to ignore the `Logs` directory.
+- Verified contents of `.gitignore` using `cat .gitignore`.
+
+------------------------------------------------------------------------------
+STEP 3: VERIFY GIT STATUS AND TRACKING
+------------------------------------------------------------------------------
+Commands Executed:
+$ git status
+
+Notes:
+- Executed `git status` to verify the working tree.
+- Confirmed that "app.log" and "Logs/" no longer appear in untracked files.
+- Confirmed that only ".gitignore" is listed as an untracked file ready to be staged.
+
+------------------------------------------------------------------------------
+STEP 4: STAGE, COMMIT, AND PUSH
+------------------------------------------------------------------------------
+Commands Executed:
+$ git add .gitignore
+$ git commit -m "Configure gitignore to exclude log files and build directories"
+$ git pull origin main
+$ git push -u origin main
+
+Notes:
+- Staged `.gitignore` using `git add .gitignore`.
+- Committed `.gitignore` with message: "Configure gitignore to exclude log files and build directories".
+- Pulled latest changes from `main` to sync.
+- Pushed the commit to the remote repository `main` branch successfully.
+
+==============================================================================
+STATUS: ALL COMMANDS EXECUTED SUCCESSFULLY WITHOUT ERRORS.
+==============================================================================

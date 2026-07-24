@@ -1,0 +1,83 @@
+==============================================================================
+                    GIT HANDS-ON LAB EXECUTION LOG 
+==============================================================================
+
+Environment Details:
+- OS: Windows 11
+- Shell: Git Bash
+- Git Version: git version 2.54.0.windows.1
+
+User Credentials & Repository Details:
+- Git Username: Code04Sohan
+- Git Email: sohanadhikari04@gmail.com
+- Remote Repository URL: https://github.com/Code04Sohan/Digital-Nurture-JavaFSE-Solves-Sohan.git
+
+------------------------------------------------------------------------------
+STEP 1: SETUP MACHINE WITH GIT CONFIGURATION
+------------------------------------------------------------------------------
+Commands Executed:
+$ git version
+$ git config --global user.name "Code04Sohan"
+$ git config --global user.email "sohanadhikari04@gmail.com"
+$ git config --global --list
+
+Notes:
+- Checked the installed Git client version (2.54.0.windows.1).
+- Successfully set the global user name to "Code04Sohan" and global email to "sohanadhikari04@gmail.com".
+- Verified the global configuration using `git config --global --list`.
+
+------------------------------------------------------------------------------
+STEP 2: INTEGRATE NOTEPAD++ TO GIT AS DEFAULT EDITOR
+------------------------------------------------------------------------------
+Commands Executed:
+$ notepad++
+$ notepad++.exe bash -profile
+$ git config --global core.editor "notepad++.exe -multiInst -nosession"
+$ git config --global -e
+
+Notes:
+- Added Notepad++ executable path to the Windows Environment Variables (Path).
+- Configured bash profile alias: alias npp='notepad++.exe -multiInst -nosession'
+- Set Notepad++ as the default global core editor for Git operations.
+- Executed `git config --global -e` and verified that `.gitconfig` opens successfully in Notepad++.
+
+------------------------------------------------------------------------------
+STEP 3: LOCAL REPOSITORY CREATION & FILE TRACKING
+------------------------------------------------------------------------------
+Commands Executed:
+$ git init GitDemo
+$ cd GitDemo
+$ ls -al
+$ echo "Welcome to the version control" >> welcome.txt
+$ ls -al
+$ cat welcome.txt
+$ git status
+$ git add welcome.txt
+$ git commit
+
+Notes:
+- Initialized an empty Git repository named "GitDemo".
+- Verified hidden `.git` directory using `ls -al`.
+- Created "welcome.txt" containing "Welcome to the version control".
+- Checked working tree status with `git status` (file shown as untracked).
+- Staged "welcome.txt" using `git add welcome.txt`.
+- Committed the file via `git commit`, which opened Notepad++ for multi-line commit message input.
+- Verified working tree clean via `git status`.
+
+------------------------------------------------------------------------------
+STEP 4: REMOTE REPOSITORY INTEGRATION & SYNCHRONIZATION
+------------------------------------------------------------------------------
+Commands Executed:
+$ git remote add origin https://github.com/Code04Sohan/Digital-Nurture-JavaFSE-Solves-Sohan.git
+$ git branch -M master
+$ git pull origin master
+$ git push -u origin master
+
+Notes:
+- Linked the local "GitDemo" repository with the remote URL (https://github.com/Code04Sohan/Digital-Nurture-JavaFSE-Solves-Sohan.git).
+- Pulled latest updates from the remote repository to ensure synchronization.
+- Successfully pushed the local commits to the remote `master` branch.
+
+==============================================================================
+STATUS: ALL COMMANDS EXECUTED SUCCESSFULLY WITHOUT ERRORS.
+==============================================================================

@@ -1,0 +1,73 @@
+==============================================================================
+                    GIT HANDS-ON LAB 3 EXECUTION LOG
+==============================================================================
+
+Lab Objective:
+- Create a new branch, add files, commit changes, compare differences (P4Merge), 
+  merge with main branch, and delete the feature branch.
+
+Environment Details:
+- OS: Windows 11
+- Shell: Git Bash
+- Git Version: git version 2.54.0.windows.1
+
+User Credentials & Repository Details:
+- Git Username: Code04Sohan
+- Git Email: sohanadhikari04@gmail.com
+- Remote Repository URL: https://github.com/Code04Sohan/Digital-Nurture-JavaFSE-Solves-Sohan.git
+
+------------------------------------------------------------------------------
+STEP 1: BRANCHING AND FILE CREATION
+------------------------------------------------------------------------------
+Commands Executed:
+$ git branch GitNewBranch
+$ git branch -a
+$ git checkout GitNewBranch
+$ echo "Hello World From Sohan" >> "New File For Commit Check.txt"
+$ git status
+$ git add "New File For Commit Check.txt"
+$ git commit -m "My commit testing"
+$ git status
+
+Notes:
+- Created a new branch named "GitNewBranch".
+- Listed all local and remote branches using `git branch -a` and verified asterisk (*) on main.
+- Switched to "GitNewBranch" using `git checkout GitNewBranch`.
+- Created "New File For Commit Check.txt" containing "Hello World From Sohan".
+- Staged and committed the new file with message: "My commit testing".
+- Verified working directory clean via `git status`.
+
+------------------------------------------------------------------------------
+STEP 2: MERGING AND DIFFERENCE CHECKING
+------------------------------------------------------------------------------
+Commands Executed:
+$ git checkout main
+$ git diff main GitNewBranch
+$ git difftool -t p4merge main GitNewBranch
+$ git merge GitNewBranch
+$ git log --oneline --graph --decorate
+$ git branch -d GitNewBranch
+$ git status
+
+Notes:
+- Switched back to the main branch (`main`).
+- Compared CLI differences between `main` and `GitNewBranch` using `git diff`.
+- Viewed visual differences using P4Merge tool integration via `git difftool`.
+- Successfully merged "GitNewBranch" into "main".
+- Inspected the commit graph using `git log --oneline --graph --decorate`.
+- Safely deleted "GitNewBranch" using `git branch -d GitNewBranch`.
+- Checked `git status` to verify working tree clean state.
+
+------------------------------------------------------------------------------
+STEP 3: REMOTE SYNCHRONIZATION
+------------------------------------------------------------------------------
+Commands Executed:
+$ git pull origin main
+$ git push origin main
+
+Notes:
+- Synced local repository changes with remote and pushed the merged `main` branch to GitHub.
+
+==============================================================================
+STATUS: ALL COMMANDS EXECUTED SUCCESSFULLY WITHOUT ERRORS.
+==============================================================================
